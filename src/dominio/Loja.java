@@ -52,6 +52,8 @@ public class Loja {
                 "nome='" + nome + '\'' +
                 ", quantidadeFuncionarios=" + quantidadeFuncionarios +
                 ", salarioBaseFuncionario=" + salarioBaseFuncionario +
+                ", endereço=" + endereco.getCidade() + endereco.getNumero() +
+                ", data=" + dataFundacao.toString() +
                 '}';
     }
 
