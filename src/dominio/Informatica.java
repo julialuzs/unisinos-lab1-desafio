@@ -6,7 +6,15 @@ public class Informatica extends Loja {
 
     public Informatica(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario,
                        Endereco endereco, Data dataFundacao, double seguroEletronicos) {
-        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
+
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, 0);
+        this.seguroEletronicos = seguroEletronicos;
+    }
+
+    public Informatica(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario,
+                       Endereco endereco, Data dataFundacao, double seguroEletronicos, int quantidadeEstoque) {
+
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, quantidadeEstoque);
         this.seguroEletronicos = seguroEletronicos;
     }
 
@@ -22,7 +30,7 @@ public class Informatica extends Loja {
                 '}';
     }
 
-    public double getSeguroEletronicos() {
+    public Double getSeguroEletronicos() {
         return seguroEletronicos;
     }
 

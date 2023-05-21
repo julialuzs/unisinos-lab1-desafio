@@ -1,32 +1,68 @@
 package dominio;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Loja {
 
     private String nome;
     private int quantidadeFuncionarios;
     private int salarioBaseFuncionario;
-
+    private int quantidadeEstoque;
     private Endereco endereco;
     private Data dataFundacao;
+    private Produto[] estoqueProdutos;
 
     public Loja() {
     }
 
-    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao) {
+    public Loja(String nome, int quantidadeFuncionarios) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = -1;
-        this.endereco = endereco;
-        this.dataFundacao = dataFundacao;
     }
 
-    public Loja(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario,
-                Endereco endereco, Data dataFundacao) {
+    public Loja(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario) {
+        this.nome = nome;
+        this.quantidadeFuncionarios = quantidadeFuncionarios;
+        this.salarioBaseFuncionario = salarioBaseFuncionario;
+    }
+
+    public Loja(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario, Endereco endereco, Data dataFundacao) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
         this.endereco = endereco;
         this.dataFundacao = dataFundacao;
+    }
+
+    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao) {
+        this.nome = nome;
+        this.quantidadeFuncionarios = quantidadeFuncionarios;
+        this.endereco = endereco;
+        this.dataFundacao = dataFundacao;
+        this.salarioBaseFuncionario = -1;
+    }
+
+    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao, int quantidadeEstoque) {
+        this.nome = nome;
+        this.quantidadeFuncionarios = quantidadeFuncionarios;
+        this.salarioBaseFuncionario = -1;
+        this.endereco = endereco;
+        this.dataFundacao = dataFundacao;
+        this.quantidadeEstoque = quantidadeEstoque;
+        this.estoqueProdutos = new Produto[quantidadeEstoque];
+    }
+
+    public Loja(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario,
+                Endereco endereco, Data dataFundacao, int quantidadeEstoque) {
+        this.nome = nome;
+        this.quantidadeFuncionarios = quantidadeFuncionarios;
+        this.salarioBaseFuncionario = salarioBaseFuncionario;
+        this.endereco = endereco;
+        this.dataFundacao = dataFundacao;
+        this.quantidadeEstoque = quantidadeEstoque;
+        this.estoqueProdutos = new Produto[quantidadeEstoque];
     }
 
     public int gastosComSalario() {
@@ -46,14 +82,48 @@ public class Loja {
         return 'M';
     }
 
+    public void imprimeProdutos() {
+        for (Produto produto: estoqueProdutos) {
+            if (produto != null) {
+                System.out.println(produto.toString());
+            }
+        }
+    }
+
+    public boolean insereProduto(Produto produto) {
+        for (int i = 0; i < quantidadeEstoque; i++) {
+            if (estoqueProdutos[i] == null) {
+                estoqueProdutos[i] = produto;
+                return true;
+            }
+        }
+       return false;
+    }
+
+    public boolean removeProduto(String nomeProduto) {
+        for (int i = 0; i < quantidadeEstoque; i++) {
+            if (estoqueProdutos[i] != null && estoqueProdutos[i].getNome().equals(nomeProduto)) {
+                estoqueProdutos[i] = null;
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
+        String estoqueProdutos = Arrays.toString(getEstoqueProdutos());
+
+        String enderecoString = endereco != null ? (", endereço=" + endereco.getCidade() + endereco.getNumero() ) : null;
+        String data = dataFundacao != null ? (", data=" + dataFundacao) : null;
+
         return "Loja {" +
                 "nome='" + nome + '\'' +
                 ", quantidadeFuncionarios=" + quantidadeFuncionarios +
                 ", salarioBaseFuncionario=" + salarioBaseFuncionario +
-                ", endereço=" + endereco.getCidade() + endereco.getNumero() +
-                ", data=" + dataFundacao.toString() +
+                enderecoString +
+                data +
+                estoqueProdutos +
                 '}';
     }
 
@@ -95,5 +165,13 @@ public class Loja {
 
     public void setDataFundacao(Data dataFundacao) {
         this.dataFundacao = dataFundacao;
+    }
+
+    public Produto[] getEstoqueProdutos() {
+        return estoqueProdutos;
+    }
+
+    public void setEstoqueProdutos(Produto[] estoqueProdutos) {
+        this.estoqueProdutos = estoqueProdutos;
     }
 }

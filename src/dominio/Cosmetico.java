@@ -6,7 +6,13 @@ public class Cosmetico extends Loja {
 
     public Cosmetico(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario,
                      Endereco endereco, Data dataFundacao, double taxaComercializacao) {
-        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, 0);
+        this.taxaComercializacao = taxaComercializacao;
+    }
+
+    public Cosmetico(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario,
+                     Endereco endereco, Data dataFundacao, double taxaComercializacao, int quantidadeEstoque) {
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, quantidadeEstoque);
         this.taxaComercializacao = taxaComercializacao;
     }
 

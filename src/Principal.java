@@ -39,7 +39,7 @@ public class Principal {
         Endereco endereco = new Endereco("Tres de Outubro", "Novo Hamburgo",
                 "Rio Grande do Sul", "Brasil", "1920313", "120", "Casa");
 
-        Loja loja = new Loja("Renner", 50, endereco, new Data(10, 10, 2020));
+        Loja loja = new Loja("Renner", 50, endereco, new Data(10, 10, 2020), 5);
 
         System.out.println(loja);
     }
