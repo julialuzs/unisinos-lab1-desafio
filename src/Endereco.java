@@ -1,5 +1,3 @@
-package dominio;
-
 public class Endereco {
 
     private String nomeDaRua;
@@ -23,14 +21,14 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereco {" +
-                "nomeDaRua='" + nomeDaRua + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", estado='" + estado + '\'' +
-                ", pais='" + pais + '\'' +
-                ", cep='" + cep + '\'' +
-                ", numero='" + numero + '\'' +
-                ", complemento='" + complemento + '\'' +
+        return "Endereço {" +
+                "Rua: '" + nomeDaRua + '\'' +
+                ", Cidade: '" + cidade + '\'' +
+                ", Estado: '" + estado + '\'' +
+                ", País: '" + pais + '\'' +
+                ", CEP:'" + cep + '\'' +
+                ", Número: '" + numero + '\'' +
+                ", Complemento: '" + complemento + '\'' +
                 '}';
     }
 

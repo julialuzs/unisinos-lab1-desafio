@@ -1,7 +1,4 @@
-package dominio;
-
 import java.util.Arrays;
-import java.util.List;
 
 public class Loja {
 
@@ -14,34 +11,6 @@ public class Loja {
     private Produto[] estoqueProdutos;
 
     public Loja() {
-    }
-
-    public Loja(String nome, int quantidadeFuncionarios) {
-        this.nome = nome;
-        this.quantidadeFuncionarios = quantidadeFuncionarios;
-        this.salarioBaseFuncionario = -1;
-    }
-
-    public Loja(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario) {
-        this.nome = nome;
-        this.quantidadeFuncionarios = quantidadeFuncionarios;
-        this.salarioBaseFuncionario = salarioBaseFuncionario;
-    }
-
-    public Loja(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario, Endereco endereco, Data dataFundacao) {
-        this.nome = nome;
-        this.quantidadeFuncionarios = quantidadeFuncionarios;
-        this.salarioBaseFuncionario = salarioBaseFuncionario;
-        this.endereco = endereco;
-        this.dataFundacao = dataFundacao;
-    }
-
-    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao) {
-        this.nome = nome;
-        this.quantidadeFuncionarios = quantidadeFuncionarios;
-        this.endereco = endereco;
-        this.dataFundacao = dataFundacao;
-        this.salarioBaseFuncionario = -1;
     }
 
     public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao, int quantidadeEstoque) {
@@ -112,19 +81,17 @@ public class Loja {
 
     @Override
     public String toString() {
-        String estoqueProdutos = Arrays.toString(getEstoqueProdutos());
+        String enderecoString = endereco != null ?
+                ", Endereço: " + endereco.getCidade() + " " + endereco.getNumero() : null;
 
-        String enderecoString = endereco != null ? (", endereço=" + endereco.getCidade() + endereco.getNumero() ) : null;
-        String data = dataFundacao != null ? (", data=" + dataFundacao) : null;
+        String data = dataFundacao != null ? (", Data: " + dataFundacao) : null;
 
-        return "Loja {" +
-                "nome='" + nome + '\'' +
-                ", quantidadeFuncionarios=" + quantidadeFuncionarios +
-                ", salarioBaseFuncionario=" + salarioBaseFuncionario +
+        return "Loja: '" + nome + '\'' +
+                ", Quantidade de Funcionários: " + quantidadeFuncionarios +
+                ", Salário Base do Funcionário: " + salarioBaseFuncionario +
                 enderecoString +
                 data +
-                estoqueProdutos +
-                '}';
+                ", Produtos:" + Arrays.toString(estoqueProdutos);
     }
 
     public String getNome() {

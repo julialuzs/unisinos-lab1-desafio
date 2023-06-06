@@ -1,5 +1,3 @@
-package dominio;
-
 public class Informatica extends Loja {
 
     private double seguroEletronicos;

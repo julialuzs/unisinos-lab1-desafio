@@ -1,8 +1,3 @@
-import dominio.Data;
-import dominio.Endereco;
-import dominio.Loja;
-import dominio.Produto;
-
 import java.util.Scanner;
 
 public class Principal {

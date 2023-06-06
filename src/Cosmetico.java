@@ -1,5 +1,3 @@
-package dominio;
-
 public class Cosmetico extends Loja {
 
     private double taxaComercializacao;

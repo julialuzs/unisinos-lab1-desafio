@@ -1,5 +1,3 @@
-package dominio;
-
 public class Bijuteria extends Loja {
 
     private double metaVendas;

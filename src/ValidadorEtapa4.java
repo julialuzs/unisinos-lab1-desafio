@@ -1,5 +1,3 @@
-import dominio.*;
-
 public class ValidadorEtapa4 {
 
 	public static void main(String[] args){

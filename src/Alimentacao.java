@@ -1,5 +1,3 @@
-package dominio;
-
 public class Alimentacao extends Loja {
 
     private Data dataAlvara;
@@ -18,12 +16,12 @@ public class Alimentacao extends Loja {
 
     @Override
     public String toString() {
-        return "Alimentacao {" +
+        return "Alimentação {" +
                 "Nome: " + this.getNome() + '\'' +
                 ", Quantidade Funcionários: " + this.getQuantidadeFuncionarios() +
                 ", Salário Base Funcionário: " + this.getSalarioBaseFuncionario() +
                 ", Endereço: " + this.getEndereco().getCidade() + this.getEndereco().getNumero() +
-                ", data Fundação: " + this.getDataFundacao().toString() +
+                ", Data Fundação: " + this.getDataFundacao().toString() +
                 ", Data Alvará: " + dataAlvara +
                 '}';
     }

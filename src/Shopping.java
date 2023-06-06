@@ -1,5 +1,3 @@
-package dominio;
-
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -71,10 +69,10 @@ public class Shopping {
 
     @Override
     public String toString() {
-        return "Shopping{" +
-                "nome='" + nome + '\'' +
-                ", endereco=" + endereco +
-                ", lojas=" + lojas.toString() +
+        return "Shopping {" +
+                "Nome: '" + nome + '\'' +
+                ", Endereço: " + endereco.toString() +
+                ", Lojas: " + lojas.toString() +
                 '}';
     }
 

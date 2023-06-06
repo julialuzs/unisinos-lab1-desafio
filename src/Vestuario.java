@@ -1,5 +1,3 @@
-package dominio;
-
 public class Vestuario extends Loja {
 
     private boolean produtosImportados;

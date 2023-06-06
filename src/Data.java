@@ -1,5 +1,3 @@
-package dominio;
-
 import java.util.Set;
 
 public class Data {
