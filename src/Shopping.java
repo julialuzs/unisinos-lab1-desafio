@@ -39,32 +39,68 @@ public class Shopping {
     }
 
     public int quantidadeLojasPorTipo(String tipoLoja) {
-        List<Loja> lojasLista = Arrays.asList(lojas);
+        int count = 0;
         switch (tipoLoja) {
             case "Cosmético":
-                return (int) lojasLista.stream().filter(loja -> loja instanceof Cosmetico).count();
+                for (Loja loja : lojas) {
+                    if (loja instanceof Cosmetico) {
+                        count++;
+                    }
+                }
+                return count;
             case "Vestuário":
-                return (int) lojasLista.stream().filter(loja -> loja instanceof Vestuario).count();
+                for (Loja loja : lojas) {
+                    if (loja instanceof Vestuario) {
+                        count++;
+                    }
+                }
+                return count;
             case "Bijuteria":
-                return (int) lojasLista.stream().filter(loja -> loja instanceof Bijuteria).count();
+                for (Loja loja : lojas) {
+                    if (loja instanceof Bijuteria) {
+                        count++;
+                    }
+                }
+                return count;
             case "Alimentação":
-                return (int) lojasLista.stream().filter(loja -> loja instanceof Alimentacao).count();
+                for (Loja loja : lojas) {
+                    if (loja instanceof Alimentacao) {
+                        count++;
+                    }
+                }
+                return count;
             case "Informática":
-                return (int) lojasLista.stream().filter(loja -> loja instanceof Informatica).count();
+                for (Loja loja : lojas) {
+                    if (loja instanceof Informatica) {
+                        count++;
+                    }
+                }
+                return count;
             default:
                 return -1;
         }
     }
 
     public Informatica lojaSeguroMaisCaro() {
-        List<Loja> lojasLista = Arrays.asList(lojas);
-        Stream<Loja> lojasInformatica = lojasLista.stream().filter(loja -> loja instanceof Informatica);
+        Loja[] lojasInformatica = new Loja[lojas.length];
 
-        Comparator comparator = Comparator.comparing(loja -> ((Informatica) loja).getSeguroEletronicos());
+        for (int i = 0; i < lojas.length; i++) {
+            if (lojas[i] instanceof Informatica) {
+                lojasInformatica[i] = lojas[i];
+            }
+        }
 
-        Optional<Informatica> seguroMaisCaro = lojasInformatica.max(comparator);
-
-        return seguroMaisCaro.orElse(null);
+        Informatica lojaSeguroMaisCaro = null;
+        Double seguroMaisCaro = 0D;
+        
+        for (Loja loja : lojasInformatica) {
+            Informatica lojaInfo = (Informatica) loja;
+            if (lojaInfo.getSeguroEletronicos() > seguroMaisCaro) {
+                seguroMaisCaro = lojaInfo.getSeguroEletronicos();
+                lojaSeguroMaisCaro = lojaInfo;
+            }
+        }
+        return lojaSeguroMaisCaro;
     }
 
     @Override
