@@ -1,5 +1,3 @@
-import java.util.Date;
-
 public class Produto {
 
     private String nome;
@@ -13,10 +11,15 @@ public class Produto {
     }
 
     public boolean estaVencido(Data dataAtual) {
-        Date atual = new Date(dataAtual.getAno(), dataAtual.getMes(), dataAtual.getDia());
-        Date vencimento = new Date(this.dataValidade.getAno(), this.dataValidade.getMes(), this.dataValidade.getDia());
+        if (this.dataValidade.getAno() < dataAtual.getAno()) {
+            return true;
+        }
 
-        return atual.after(vencimento);
+        if (this.dataValidade.getMes() < dataAtual.getMes()) {
+            return true;
+        }
+
+        return this.dataValidade.getDia() < dataAtual.getDia();
     }
 
     @Override

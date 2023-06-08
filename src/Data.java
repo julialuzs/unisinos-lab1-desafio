@@ -27,7 +27,11 @@ public class Data {
     }
 
     private boolean validarData() {
-        if (this.mes > 12) {
+        if (ano <= 0) {
+            return false;
+        }
+        
+        if (this.mes < 1 || this.mes > 12) {
             return false;
         }
 

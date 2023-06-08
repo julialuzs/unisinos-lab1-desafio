@@ -2,7 +2,7 @@ public class Informatica extends Loja {
 
     private double seguroEletronicos;
 
-    public Informatica(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario,
+    public Informatica(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario,
                        Endereco endereco, Data dataFundacao, double seguroEletronicos, int quantidadeEstoque) {
 
         super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, quantidadeEstoque);

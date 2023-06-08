@@ -1,16 +1,11 @@
-import java.util.Arrays;
-
 public class Loja {
 
     private String nome;
     private int quantidadeFuncionarios;
-    private int salarioBaseFuncionario;
+    private double salarioBaseFuncionario;
     private Endereco endereco;
     private Data dataFundacao;
     private Produto[] estoqueProdutos;
-
-    public Loja() {
-    }
 
     public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao, int quantidadeEstoque) {
         this.nome = nome;
@@ -21,8 +16,8 @@ public class Loja {
         this.estoqueProdutos = new Produto[quantidadeEstoque];
     }
 
-    public Loja(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario,
-                Endereco endereco, Data dataFundacao, int quantidadeEstoque) {
+    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco,
+                Data dataFundacao, int quantidadeEstoque) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
@@ -31,7 +26,7 @@ public class Loja {
         this.estoqueProdutos = new Produto[quantidadeEstoque];
     }
 
-    public int gastosComSalario() {
+    public double gastosComSalario() {
         if (this.salarioBaseFuncionario == -1) {
             return -1;
         }
@@ -79,7 +74,9 @@ public class Loja {
     @Override
     public String toString() {
         String enderecoString = endereco != null ?
-                ", Endereço: " + endereco.getCidade() + " " + endereco.getNumero() : null;
+                ", Endereço: " + endereco.getNomeDaRua() + ", " + endereco.getNumero() + " - " +
+                endereco.getCidade() + ", " + endereco.getEstado() + ", " + endereco.getPais()
+                : null;
 
         String data = dataFundacao != null ? (", Data: " + dataFundacao) : null;
 
@@ -88,7 +85,18 @@ public class Loja {
                 ", Salário Base do Funcionário: " + salarioBaseFuncionario +
                 enderecoString +
                 data +
-                ", Produtos:" + Arrays.toString(estoqueProdutos);
+                ", Produtos:" + listarProdutos();
+    }
+
+    private StringBuilder listarProdutos() {
+        StringBuilder produtos = new StringBuilder();
+
+        for(Produto produto : estoqueProdutos) {
+            if (produto != null) {
+                produtos.append(produto.getNome()).append("; ");
+            }
+        }
+        return produtos;
     }
 
     public String getNome() {
@@ -107,7 +115,7 @@ public class Loja {
         this.quantidadeFuncionarios = quantidadeFuncionarios;
     }
 
-    public int getSalarioBaseFuncionario() {
+    public double getSalarioBaseFuncionario() {
         return salarioBaseFuncionario;
     }
 
