@@ -5,7 +5,6 @@ public class Loja {
     private String nome;
     private int quantidadeFuncionarios;
     private int salarioBaseFuncionario;
-    private int quantidadeEstoque;
     private Endereco endereco;
     private Data dataFundacao;
     private Produto[] estoqueProdutos;
@@ -19,7 +18,6 @@ public class Loja {
         this.salarioBaseFuncionario = -1;
         this.endereco = endereco;
         this.dataFundacao = dataFundacao;
-        this.quantidadeEstoque = quantidadeEstoque;
         this.estoqueProdutos = new Produto[quantidadeEstoque];
     }
 
@@ -30,7 +28,6 @@ public class Loja {
         this.salarioBaseFuncionario = salarioBaseFuncionario;
         this.endereco = endereco;
         this.dataFundacao = dataFundacao;
-        this.quantidadeEstoque = quantidadeEstoque;
         this.estoqueProdutos = new Produto[quantidadeEstoque];
     }
 
@@ -60,7 +57,7 @@ public class Loja {
     }
 
     public boolean insereProduto(Produto produto) {
-        for (int i = 0; i < quantidadeEstoque; i++) {
+        for (int i = 0; i < estoqueProdutos.length; i++) {
             if (estoqueProdutos[i] == null) {
                 estoqueProdutos[i] = produto;
                 return true;
@@ -70,7 +67,7 @@ public class Loja {
     }
 
     public boolean removeProduto(String nomeProduto) {
-        for (int i = 0; i < quantidadeEstoque; i++) {
+        for (int i = 0; i < estoqueProdutos.length; i++) {
             if (estoqueProdutos[i] != null && estoqueProdutos[i].getNome().equals(nomeProduto)) {
                 estoqueProdutos[i] = null;
                 return true;
