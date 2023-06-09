@@ -64,13 +64,16 @@ public class Principal {
 
         System.out.println("Informe a quantidade de estoque da loja:");
         int qtdEstoque = scanner.nextInt();
+        scanner.nextLine();
 
         return new Loja(nome, qtdFuncionarios, salarioBase, cadastrarEndereco(scanner), dataCriacao, qtdEstoque);
     }
 
     private static Produto criarProduto(Scanner scanner) {
+        scanner.nextLine();
+
         System.out.println("Informe o nome do produto:");
-        String nome = scanner.next();
+        String nome = scanner.nextLine();
 
         System.out.println("Informe o preço:");
         double preco = scanner.nextDouble();
@@ -88,8 +91,6 @@ public class Principal {
     }
 
     private static Endereco cadastrarEndereco(Scanner scanner) {
-        scanner.nextLine();
-
         System.out.println("Informe a rua:");
         String rua = scanner.nextLine();
 

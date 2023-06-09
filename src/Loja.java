@@ -74,8 +74,9 @@ public class Loja {
     @Override
     public String toString() {
         String enderecoString = endereco != null ?
-                ", Endereço: " + endereco.getNomeDaRua() + ", " + endereco.getNumero() + " - " +
-                endereco.getCidade() + ", " + endereco.getEstado() + ", " + endereco.getPais()
+                ", Endereço: " + endereco.getNomeDaRua() + ", " + endereco.getNumero() + ", " +
+                        endereco.getComplemento() + " - " + endereco.getCep() + ", " +
+                        endereco.getCidade() + ", " + endereco.getEstado() + ", " + endereco.getPais()
                 : null;
 
         String data = dataFundacao != null ? (", Data: " + dataFundacao) : null;
